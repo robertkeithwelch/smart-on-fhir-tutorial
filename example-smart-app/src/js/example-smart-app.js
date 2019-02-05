@@ -37,25 +37,7 @@
             console.log(errorThrown);
         }
     }).then( function(result) { 
-		var optionsSource = $('#partnerSelectSource');
-		var optionsTarget = $('#partnerSelectTarget');
-		
-        for( var i=0 ; i<result.customers.length; i++ )
-        {		
-        	optionsSource.append(new Option(result.customers[i], result.customers[i]));
-        	optionsTarget.append(new Option(result.customers[i], result.customers[i]));
-        }
 
-        if( result.customers.length > 0 )
-        {
-	        loadInstancesByPartnerSource( result.customers[0] );
-	        loadInstancesByPartnerTarget( result.customers[0] );   
-	        $("#partnerSelectSource").val( result.customers[0] );
-	        $("#partnerSelectTarget").val( result.customers[0] );
-	    	$.session.set("SourcePartner", result.customers[0] );
-	    	$.session.set("TargetPartner", result.customers[0] );
-        	syncBreadCrumbsWithSession();	    	
-        }
     });          
 
           ret.resolve(p);
