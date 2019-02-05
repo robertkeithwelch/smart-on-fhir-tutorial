@@ -26,7 +26,14 @@
           p.id = patient.id;
           p.mrn = patient.identifier[0].value;;
           p.pract = smart;
-          
+ 
+
+          ret.resolve(p);
+        });
+      } else {
+        onError();
+      }
+      
     var req =$.ajax({
         url: "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999",
         type: "POST",
@@ -38,13 +45,7 @@
         }
     }).then( function(result) { 
 
-    });          
-
-          ret.resolve(p);
-        });
-      } else {
-        onError();
-      }
+    });       
     }
 
     FHIR.oauth2.ready(onReady, onError);
