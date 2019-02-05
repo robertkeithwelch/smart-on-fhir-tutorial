@@ -44,7 +44,7 @@
             console.log(errorThrown);
         }
     }).then( function(result) { 
-
+      $('#sent').html( "Sent!" );
     });       
     }
 
