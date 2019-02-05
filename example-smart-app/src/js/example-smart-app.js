@@ -45,7 +45,7 @@
           p.gender = gender;
           p.fname = fname;
           p.lname = lname;
-          p.pract = smart.id_token;
+          p.pract = smart;
 
           ret.resolve(p);
         });
