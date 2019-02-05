@@ -12,6 +12,8 @@
         
         var practitioner = "none";
         
+        $('#pract').html(JSON.stringify( smart ));
+        
         var patient = smart.patient;
         var pt = patient.read();
 /*        var obv = smart.patient.api.fetchAll({
@@ -81,8 +83,6 @@
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
-    $('#pract').html(p.practitioner);
-
     
   };
 
