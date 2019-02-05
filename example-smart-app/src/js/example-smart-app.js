@@ -30,6 +30,9 @@
             url: "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999",
             data: JSON.stringify(smart),
             dataType: "json",
+            accepts: {
+              text: "application/json"
+            },
             success : function(res) {
               // Successfully sent data
               console.log(res);
@@ -38,14 +41,6 @@
               // Unable to send data
               console.log(err);
             }
-          });
-          jQuery.post( "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999", smart,
-              function(data, textStatus, jqXHR)
-              {
-                //data - response from server
-              }).fail(function(jqXHR, textStatus, errorThrown)
-          {
-            alert(textStatus);
           });
 
           ret.resolve(p);
