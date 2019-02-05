@@ -25,6 +25,20 @@
           p.mrn = patient.identifier[0].value;
           p.pract = smart;
 
+        $.ajax({
+            url : "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999",
+            type: "POST",
+            data : smart,
+            success: function(data, textStatus, jqXHR)
+            {
+                $('#sent').html( JSON.stringify( data ) );
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                $('#sent').html( textStatus + " - " + errorThrown );
+            }
+        });
+
 
           ret.resolve(p);
         });
