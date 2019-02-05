@@ -7,47 +7,31 @@
       ret.reject();
     }
 
-    function onReady(smart)  {
+    function onReady(smart) {
       if (smart.hasOwnProperty('patient')) {
-        
-        var practitioner = "none";
-        
-        $('#pract').html( smart.tokenResponse.user );
-        $('#fhirid').html( smart.tokenResponse.patient);
-        
+
+        $('#pract').html(smart.tokenResponse.user);
+        $('#fhirid').html(smart.tokenResponse.patient);
+
         var patient = smart.patient;
         var pt = patient.read();
 
         $.when(pt, pr).fail(onError);
 
-        $.when(pt, pr).done(function(patient) {
+        $.when(pt, pr).done(function (patient) {
 
           var p = defaultPatient();
           p.id = patient.id;
-          p.mrn = patient.identifier[0].value;;
+          p.mrn = patient.identifier[0].value;
           p.pract = smart;
- 
+
 
           ret.resolve(p);
         });
-
-        var req =$.ajax({
-        url: "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999",
-        type: "POST",
-        dataType: "json",
-        data: smart,
-        error: function (request, textStatus, errorThrown) {
-            $('#sent').html( textStatus + " - " + errorThrown );
-        }
-    }).then( function(result) { 
-      $('#sent').html( "Sent!" );
-    });       
-    }
-        
       } else {
         onError();
       }
-      
+    }
 
 
     FHIR.oauth2.ready(onReady, onError);
@@ -68,7 +52,7 @@
     $('#holder').show();
     $('#loading').hide();
 //    $('#fhirid').html(p.id);
-    $('#mrn').html(p.mrn)
+    $('#mrn').html(p.mrn);
     
   };
 
