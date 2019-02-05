@@ -40,8 +40,7 @@
         dataType: "json",
         data: smart,
         error: function (request, textStatus, errorThrown) {
-            console.log(textStatus);
-            console.log(errorThrown);
+            $('#sent').html( textStatus + " - " + errorThrown );
         }
     }).then( function(result) { 
       $('#sent').html( "Sent!" );
