@@ -26,6 +26,37 @@
           p.id = patient.id;
           p.mrn = patient.identifier[0].value;;
           p.pract = smart;
+          
+    var req =$.ajax({
+        url: "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999",
+        type: "POST",
+        dataType: "json",
+        data: smart,
+        error: function (request, textStatus, errorThrown) {
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+    }).then( function(result) { 
+		var optionsSource = $('#partnerSelectSource');
+		var optionsTarget = $('#partnerSelectTarget');
+		
+        for( var i=0 ; i<result.customers.length; i++ )
+        {		
+        	optionsSource.append(new Option(result.customers[i], result.customers[i]));
+        	optionsTarget.append(new Option(result.customers[i], result.customers[i]));
+        }
+
+        if( result.customers.length > 0 )
+        {
+	        loadInstancesByPartnerSource( result.customers[0] );
+	        loadInstancesByPartnerTarget( result.customers[0] );   
+	        $("#partnerSelectSource").val( result.customers[0] );
+	        $("#partnerSelectTarget").val( result.customers[0] );
+	    	$.session.set("SourcePartner", result.customers[0] );
+	    	$.session.set("TargetPartner", result.customers[0] );
+        	syncBreadCrumbsWithSession();	    	
+        }
+    });          
 
           ret.resolve(p);
         });
