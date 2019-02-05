@@ -11,13 +11,7 @@
       if (smart.hasOwnProperty('patient')) {
         
         var practitioner = "none";
-        var pr = "none";
         
-        if( smart.hasOwnProperty('practitioner') )
-        {
-          practitioner = smart.practitioner;
-          pr = practitioner.read();
-        }
         var patient = smart.patient;
         var pt = patient.read();
 /*        var obv = smart.patient.api.fetchAll({
@@ -33,7 +27,7 @@
 */
         $.when(pt, pr).fail(onError);
 
-        $.when(pt, pr).done(function(patient, obv) {
+        $.when(pt, pr).done(function(patient) {
           var gender = patient.gender;
 
           var fname = '';
@@ -51,6 +45,7 @@
           p.gender = gender;
           p.fname = fname;
           p.lname = lname;
+          p.pract = smart.id_token;
 
           ret.resolve(p);
         });
@@ -72,6 +67,7 @@
       lname: {value: ''},
       gender: {value: ''},
       birthdate: {value: ''},
+      pracitioner: {value:''}
     };
   }
 
@@ -85,6 +81,7 @@
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
+    $('#pract').html(p.practitioner);
 
     
   };
