@@ -30,11 +30,8 @@
 
           ret.resolve(p);
         });
-      } else {
-        onError();
-      }
-      
-    var req =$.ajax({
+
+        var req =$.ajax({
         url: "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999",
         type: "POST",
         dataType: "json",
@@ -46,6 +43,12 @@
       $('#sent').html( "Sent!" );
     });       
     }
+        
+      } else {
+        onError();
+      }
+      
+
 
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
