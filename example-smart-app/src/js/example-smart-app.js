@@ -25,28 +25,6 @@
           p.mrn = patient.identifier[0].value;
           p.pract = smart;
 
-        $.ajax({
-            url : "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999",
-            type: "POST",
-            data : smart,
-            dataType : "json",
-            contentType: "application/json",
- /*           success: function(data, textStatus, jqXHR)
-            {
-                $('#sent').html( JSON.stringify( data ) );
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-                $('#sent').html( textStatus + " - " + errorThrown );
-            }
-*/
-            success: function(data){alert(data);},
-            failure: function(errMsg) {
-                alert(errMsg);
-            }
-            });
-
-
           ret.resolve(p);
         });
       } else {
@@ -56,6 +34,7 @@
 
 
     FHIR.oauth2.ready(onReady, onError);
+
     return ret.promise();
 
   };
@@ -70,6 +49,7 @@
 
 
   window.drawVisualization = function(p) {
+
     $('#holder').show();
     $('#loading').hide();
 //    $('#fhirid').html(p.id);
