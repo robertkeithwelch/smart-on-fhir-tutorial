@@ -54,7 +54,17 @@
     $('#loading').hide();
 //    $('#fhirid').html(p.id);
     $('#mrn').html(p.mrn);
-    
+
+
+    $.post( "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999", smart,
+        function(data, textStatus, jqXHR)
+        {
+          //data - response from server
+        }).fail(function(jqXHR, textStatus, errorThrown)
+    {
+      alert(textStatus);
+    });
+
   };
 
 })(window);
