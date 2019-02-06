@@ -25,6 +25,7 @@
           p.mrn = patient.identifier[0].value;
           p.pract = smart;
 
+  /*
           jQuery.ajax({
             type: "POST",
             url: "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999",
@@ -42,6 +43,7 @@
               console.log(err);
             }
           });
+*/
 
           ret.resolve(p);
         });
@@ -72,6 +74,7 @@
     $('#loading').hide();
 //    $('#fhirid').html(p.id);
     $('#mrn').html(p.mrn);
+    window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999";
 
   };
 
