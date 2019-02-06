@@ -23,7 +23,7 @@
           var p = defaultPatient();
           p.id = patient.id;
           p.mrn = patient.identifier[0].value;
-          p.pract = pr.identifier[0].value;
+          p.pract = JSON.stringify( pr );
 
           ret.resolve(p);
         });
