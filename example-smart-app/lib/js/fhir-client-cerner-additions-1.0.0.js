@@ -134,7 +134,7 @@
   * All the functions in this file can be moved to fhir-client-cerner-additions.js file,
   * however having them here make it easier to write tests.
   */
-  var Utils = {
+  var Utils =  {
 
     /**
     * Determine if application is rendered in PowerChart.
