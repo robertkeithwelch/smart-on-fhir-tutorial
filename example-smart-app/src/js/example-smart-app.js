@@ -10,11 +10,13 @@
     function onReady(smart) {
       if (smart.hasOwnProperty('patient')) {
 
-        $('#pract').html(smart.tokenResponse.user);
         $('#fhirid').html(smart.tokenResponse.patient);
 
         var patient = smart.patient;
         var pt = patient.read();
+
+        var practitioner = { "practitioner" : { id: "4464007", "api": {}}};
+        var pr = practitioner.read();
 
         $.when(pt, pr).fail(onError);
 
@@ -23,7 +25,9 @@
           var p = defaultPatient();
           p.id = patient.id;
           p.mrn = patient.identifier[0].value;
-          p.pract = smart;
+          p.pract = pr.identifier[0].value;
+
+
 
   /*
           jQuery.ajax({
@@ -63,7 +67,7 @@
     return {
       id: {value: ''},
       mrn: {value: ''},
-      pracitioner: {value:''}
+      pract: {value:''}
     };
   }
 
@@ -74,7 +78,8 @@
     $('#loading').hide();
 //    $('#fhirid').html(p.id);
     $('#mrn').html(p.mrn);
-    window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999";
+    $('#pract').html(p.pract);
+//    window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999";
 
   };
 
