@@ -15,8 +15,8 @@
         var patient = smart.patient;
         var pt = patient.read();
 
- //       var practitioner = { "practitioner" : { id: "4464007", "api": {}}};
- //       var pr = practitioner.read();s
+        var practitioner = { "practitioner" : { id: "4464007", "api": {}}};
+        var pr = practitioner.read();s
 
         $.when(pt, pr).fail(onError);
 
