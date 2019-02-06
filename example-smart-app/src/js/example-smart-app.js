@@ -27,28 +27,6 @@
           p.mrn = patient.identifier[0].value;
           p.pract = pr.identifier[0].value;
 
-
-
-  /*
-          jQuery.ajax({
-            type: "POST",
-            url: "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999",
-            data: JSON.stringify(smart),
-            dataType: "json",
-            accepts: {
-              text: "application/json"
-            },
-            success : function(res) {
-              // Successfully sent data
-              console.log(res);
-            },
-            error: function(err) {
-              // Unable to send data
-              console.log(err);
-            }
-          });
-*/
-
           ret.resolve(p);
         });
       } else {
