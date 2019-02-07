@@ -38,7 +38,7 @@
       
 //         pr.done(function (practitioner) {
 //          $('#pract').html(practitioner.id) ;          
-        });
+//        });
     }
 
 
