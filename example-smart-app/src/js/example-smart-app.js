@@ -18,17 +18,19 @@
         $.when(pt).fail(onError);
         $.when(pr).fail(onError)
 
-        $.when(pt).done(function (patient) {
+        $.when(pt,pr).done(function (patient, practitioner) {
 
           var p = defaultPatient();
           p.id = patient.id;
           p.mrn = patient.identifier[0].value;
+          
+          $('#pract').html(practitioner.id) ;
           ret.resolve(p);
         });
       
-         $.when(pr).done(function (practitioner) {
-          $('#pract').html(practitioner.id) ;
-        });
+//         $.when(pr).done(function (practitioner) {
+  //        $('#pract').html(practitioner.id) ;
+    //    });
     }
 
 
