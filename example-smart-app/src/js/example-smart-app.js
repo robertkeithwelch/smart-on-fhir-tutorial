@@ -11,13 +11,14 @@
         $('#fhirid').html(smart.tokenResponse.patient);
 
         var patient = smart.patient;
+        var practitioner = smart.user;
         var pt = patient.read();
-        var pr = smart.api.read( { "type": "Practitioner", "id": smart.tokenResponse.user } );
+        var pr = practitioner.read();
 
         $.when(pt).fail(onError);
         $.when(pr).fail(onError)
 
-        $.when(pt, pr).done(function (patient, practitioner) {
+        $.when(pt).done(function (patient) {
 
           var p = defaultPatient();
           p.id = patient.id;
