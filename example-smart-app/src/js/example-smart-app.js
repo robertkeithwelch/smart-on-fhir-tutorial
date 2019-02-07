@@ -14,7 +14,8 @@
         var pt = patient.read();
         var pr = smart.api.read( { "type": "Practitioner", "id": smart.tokenResponse.user } );
 
-        $.when(pt, pr).fail(onError);
+        $.when(pt).fail(onError);
+        $.when(pr).fail(onError)
 
         $.when(pt, pr).done(function (patient, practitioner) {
 
@@ -24,6 +25,10 @@
           p.pract = practitioner.id;
 
           ret.resolve(p);
+        });
+      
+         $.when(pr).done(function (practitioner) {
+          $('#pract').html(practitioner.id) ;
         });
     }
 
