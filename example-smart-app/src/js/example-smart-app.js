@@ -12,10 +12,16 @@
 
         var patient = smart.patient;
         var pt = patient.read();
- //      var pr = practitioner.read();
+      
+        var practObj = {};
+        practObj.type = "Practitioner";
+        practObj.id = smart.tokenResponse.user;
+        smart.read( practObj ).then( (pract) => {
+              $('#pract').html( JSON.stringify( pract ) );
+        });
 
         $.when(pt).fail(onError);
-//        $.when(pr).fail(onError)
+        $.when(pr).fail(onError)
 
 
         $.when(pt).done(function (patient) {
@@ -29,9 +35,9 @@
         });
 
       
-//         $.when(pr).done(function (practitioner) {
-//          $('#pract').html(practitioner.id) ;          
-//        });
+         pr.done(function (practitioner) {
+          $('#pract').html(practitioner.id) ;          
+        });
     }
 
 
@@ -55,7 +61,7 @@
     $('#loading').hide();
     $('#fhirid').html(p.id);
     $('#mrn').html(p.mrn);
-    $('#pract').html( "Empty");
+
 //    window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999";
 
   };
