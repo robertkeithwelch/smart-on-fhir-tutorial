@@ -10,30 +10,28 @@
     function onReady(smart) {
         $('#fhirid').html(smart.tokenResponse.patient);
 
-//        var patient = smart.patient;
-        var practitioner = smart.user;
-//        var pt = patient.read();
-        var pr = practitioner.read();
+        var patient = smart.patient;
+        var pt = patient.read();
+ //      var pr = practitioner.read();
 
-//        $.when(pt).fail(onError);
-        $.when(pr).fail(onError)
+        $.when(pt).fail(onError);
+//        $.when(pr).fail(onError)
 
-/*
-        $.when(pt,pr).done(function (patient, practitioner) {
+
+        $.when(pt).done(function (patient) {
 
           var p = defaultPatient();
           p.id = patient.id;
           p.mrn = patient.identifier[0].value;
           
-          $('#pract').html(practitioner.id) ;
+//          $('#pract').html(practitioner.id) ;
           ret.resolve(p);
         });
-*/
+
       
-         $.when(pr).done(function (practitioner) {
-          $('#pract').html(practitioner.id) ;
-          
-        });
+//         $.when(pr).done(function (practitioner) {
+//          $('#pract').html(practitioner.id) ;          
+//        });
     }
 
 
@@ -55,9 +53,9 @@
 
     $('#holder').show();
     $('#loading').hide();
-//    $('#fhirid').html(p.id);
+    $('#fhirid').html(p.id);
     $('#mrn').html(p.mrn);
-//    $('#pract').html(p.pract);
+    $('#pract').html( "Empty");
 //    window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999";
 
   };
