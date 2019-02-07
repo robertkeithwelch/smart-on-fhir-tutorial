@@ -8,8 +8,6 @@
     }
 
     function onReady(smart) {
-      if (smart.hasOwnProperty('patient')) {
-
         $('#fhirid').html(smart.tokenResponse.patient);
 
         var patient = smart.patient;
@@ -27,9 +25,6 @@
 
           ret.resolve(p);
         });
-      } else {
-        onError();
-      }
     }
 
 
