@@ -18,7 +18,7 @@
         practObj.id = "605926"; //smart.tokenResponse.user;
 
         smart.api.read( practObj ).then( (pract) => {
-              $('#pract').html( pract.data.id ) );
+              $('#pract').html( pract.data.id );
         })
 
         $.when(pt).fail(onError);
@@ -29,10 +29,6 @@
           p.mrn = patient.identifier[0].value;
           ret.resolve(p);
         });
-
-//         pr.done(function (practitioner) {
-//          $('#pract').html(practitioner.id) ;          
-//        });
     }
 
 
