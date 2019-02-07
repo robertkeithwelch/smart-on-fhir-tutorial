@@ -22,8 +22,6 @@
           var p = defaultPatient();
           p.id = patient.id;
           p.mrn = patient.identifier[0].value;
-          p.pract = practitioner.id;
-
           ret.resolve(p);
         });
       
@@ -43,7 +41,6 @@
     return {
       id: {value: ''},
       mrn: {value: ''},
-      pract: {value:''}
     };
   }
 
@@ -54,7 +51,7 @@
     $('#loading').hide();
 //    $('#fhirid').html(p.id);
     $('#mrn').html(p.mrn);
-    $('#pract').html(p.pract);
+//    $('#pract').html(p.pract);
 //    window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999";
 
   };
