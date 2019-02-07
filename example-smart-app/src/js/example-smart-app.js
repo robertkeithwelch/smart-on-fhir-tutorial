@@ -12,7 +12,7 @@
 
         var patient = smart.patient;
         var pt = patient.read();
-        var pr = smart.api.read( { "type": "Practitioner", "id": smart.tokenResponse.user } );
+        var pr = smart.read( { "type": "Practitioner", "id": smart.tokenResponse.user } );
 
         $.when(pt).fail(onError);
         $.when(pr).fail(onError)
