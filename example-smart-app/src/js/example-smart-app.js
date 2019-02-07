@@ -16,7 +16,7 @@
         var practObj = {};
         practObj.type = "Practitioner";
         practObj.id = smart.tokenResponse.user;
-        smart.read( practObj ).then( (pract) => {
+        smart.api.read( practObj ).then( (pract) => {
               $('#pract').html( JSON.stringify( pract ) );
         });
 
