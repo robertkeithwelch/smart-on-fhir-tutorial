@@ -10,14 +10,15 @@
     function onReady(smart) {
         $('#fhirid').html(smart.tokenResponse.patient);
 
-        var patient = smart.patient;
+//        var patient = smart.patient;
         var practitioner = smart.user;
-        var pt = patient.read();
+//        var pt = patient.read();
         var pr = practitioner.read();
 
-        $.when(pt).fail(onError);
+//        $.when(pt).fail(onError);
         $.when(pr).fail(onError)
 
+/*
         $.when(pt,pr).done(function (patient, practitioner) {
 
           var p = defaultPatient();
@@ -27,10 +28,12 @@
           $('#pract').html(practitioner.id) ;
           ret.resolve(p);
         });
+*/
       
-//         $.when(pr).done(function (practitioner) {
-  //        $('#pract').html(practitioner.id) ;
-    //    });
+         $.when(pr).done(function (practitioner) {
+          $('#pract').html(practitioner.id) ;
+          
+        });
     }
 
 
