@@ -15,10 +15,10 @@
       
         var practObj = {};
         practObj.type = "Practitioner";
-        practObj.id = smart.tokenResponse.user;
+        practObj.id = "605926"; //smart.tokenResponse.user;
 
         smart.api.read( practObj ).then( (pract) => {
-              $('#pract').html( JSON.stringify( pract ) );
+              $('#pract').html( pract.data.id ) );
         })
 
         $.when(pt).fail(onError);
@@ -30,7 +30,6 @@
           ret.resolve(p);
         });
 
-      
 //         pr.done(function (practitioner) {
 //          $('#pract').html(practitioner.id) ;          
 //        });
@@ -40,7 +39,6 @@
     FHIR.oauth2.ready(onReady, onError);
 
     return ret.promise();
-
   };
 
   function defaultPatient(){
@@ -49,7 +47,6 @@
       mrn: {value: ''},
     };
   }
-
 
   window.drawVisualization = function(p) {
 
