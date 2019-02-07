@@ -18,10 +18,12 @@
         practObj.id = smart.tokenResponse.user;
         smart.api.read( practObj ).then( (pract) => {
               $('#pract').html( JSON.stringify( pract ) );
+        })
+            .catch((err) => {
+              $('#pract').html( err.data );
         });
 
         $.when(pt).fail(onError);
-        $.when(pr).fail(onError)
 
 
         $.when(pt).done(function (patient) {
@@ -35,8 +37,8 @@
         });
 
       
-         pr.done(function (practitioner) {
-          $('#pract').html(practitioner.id) ;          
+//         pr.done(function (practitioner) {
+//          $('#pract').html(practitioner.id) ;          
         });
     }
 
