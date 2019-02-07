@@ -14,7 +14,7 @@
 
         var patient = smart.patient;
         var pt = patient.read();
-        var pr = smart.api.read( { "type": "Practitioner", "id": "4464007" } );
+        var pr = smart.api.read( { "type": "Practitioner", "id": smart.tokenResponse.user } );
 
         $.when(pt, pr).fail(onError);
 
@@ -23,7 +23,7 @@
           var p = defaultPatient();
           p.id = patient.id;
           p.mrn = patient.identifier[0].value;
-          p.pract = JSON.stringify( pr );
+          p.pract = pr.id;
 
           ret.resolve(p);
         });
