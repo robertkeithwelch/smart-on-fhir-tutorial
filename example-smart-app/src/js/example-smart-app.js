@@ -20,13 +20,8 @@
         smart.api.read( practObj ).then( (pract) => {
               $('#pract').html( JSON.stringify( pract ) );
         })
-            .catch((err) => {
-              $('#pract').html( err.data );
-        });
 
         $.when(pt).fail(onError);
-
-
         $.when(pt).done(function (patient) {
 
           var p = defaultPatient();
