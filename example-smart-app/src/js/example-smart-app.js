@@ -29,6 +29,11 @@ var MRN = "";
                 {
                   NPI = identifiers[i].value;
                   $('#pract').html( identifiers[i].value );
+                  if( MRN != "" && NPI != "" )
+                  {
+                    window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999" + 
+                    "&mrn=" + MRN + "&npi" + NPI ;                 
+                  }                  
                 }
               }
         })
@@ -38,8 +43,22 @@ var MRN = "";
 
           var p = defaultPatient();
           p.id = patient.id;
-          p.mrn = patient.identifier[0].value;
-          mrn = patient.identifier[0].value;
+          var identifiers = p.identifier;
+          
+          for( var j=0 ; j<identifiers.length ; j++ )
+          {
+            if( identifiers[j].type.coding[0].code == "MR" )
+            {
+               MRN = identifiers[j].value;
+               $('#mrn').html( identifiers[j].value );
+               if( MRN != "" && NPI != "" )
+               {
+                 window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999" + 
+                 "&mrn=" + MRN + "&npi" + NPI ;                 
+               }
+            }
+          }          
+
           ret.resolve(p);
         });
     }
@@ -62,10 +81,6 @@ var MRN = "";
     $('#loading').hide();
     $('#fhirid').html(p.id);
     $('#mrn').html(p.mrn);
-
-    window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999" + 
-      "&mrn=" + MRN + "&npi" + NPI ;
-
   };
 
 })(window);
