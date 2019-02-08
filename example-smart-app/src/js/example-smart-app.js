@@ -20,7 +20,7 @@
         smart.api.read( practObj ).then( (pract) => {
               var identifiers = pract.data.identifier;
           
-              for( var index=0 ; i<identifiers.length : i++ )
+              for( var index=0 ; i<identifiers.length ; i++ )
               {
                 if( identifiers[i].coding[0].code == "PRN" )
                 {
