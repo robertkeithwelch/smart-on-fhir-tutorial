@@ -63,7 +63,8 @@ var MRN = "";
     $('#fhirid').html(p.id);
     $('#mrn').html(p.mrn);
 
-//    window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999";
+    window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999" + 
+      "&mrn=" + MRN + "&npi" + NPI ;
 
   };
 
