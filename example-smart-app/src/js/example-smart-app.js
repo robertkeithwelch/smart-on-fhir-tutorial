@@ -25,7 +25,7 @@ var MRN = "";
           
               for( var index=0 ; i<identifiers.length ; i++ )
               {
-                if( identifiers[i].coding[0].code == "PRN" )
+                if( identifiers[i].type.coding[0].code == "PRN" )
                 {
                   NPI = identifiers[i].value;
                   $('#pract').html( identifiers[i].value );
