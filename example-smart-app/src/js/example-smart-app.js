@@ -43,7 +43,7 @@ var MRN = "";
 
           var p = defaultPatient();
           p.id = patient.id;
-          var identifiers = p.identifier;
+          var identifiers = patient.identifier;
           
           for( var j=0 ; j<identifiers.length ; j++ )
           {
