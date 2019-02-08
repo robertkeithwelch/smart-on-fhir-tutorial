@@ -54,7 +54,7 @@ var MRN = "";
                if( MRN != "" && NPI != "" )
                {
                  window.location = "http://localhost:1080/cernercontext/?partnerId=999999999999999-9999999999999" + 
-                 "&mrn=" + MRN + "&npi" + NPI ;                 
+                  "&mrn=" + MRN + "&npi=" + NPI ;                         
                }
             }
           }          
