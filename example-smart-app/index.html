@@ -16,11 +16,6 @@
   <body>
     <div id='errors'>
     </div>
-    <div id="loading" class="spinner">
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
-    </div>
     <div id='holder' >
       <h2>Context</h2>
       <table>
@@ -66,7 +61,6 @@
 
         //Display 'Failed to call FHIR Service' if extractData failed
         function() {
-          $('#loading').hide();
           $('#errors').html('<p> Failed to call FHIR Service </p>');
         }
       );
