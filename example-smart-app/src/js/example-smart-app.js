@@ -18,7 +18,15 @@
         practObj.id = "605926"; //smart.tokenResponse.user;
 
         smart.api.read( practObj ).then( (pract) => {
-              $('#pract').html( pract.data.id );
+              var identifiers = pract.data.identifier;
+          
+              for( var identifier : identifiers )
+              {
+                if( identifier.coding[0].code == "PRN" )
+                {
+                  $('#pract').html( identifier.value );
+                }
+              }
         })
 
         $.when(pt).fail(onError);
