@@ -1,3 +1,6 @@
+var NPI = "";
+var MRN = "";
+
 (function(window){
   window.extractData = function() {
     var ret = $.Deferred();
@@ -24,6 +27,7 @@
               {
                 if( identifiers[i].coding[0].code == "PRN" )
                 {
+                  NPI = identifiers[i].value;
                   $('#pract').html( identifiers[i].value );
                 }
               }
@@ -35,6 +39,7 @@
           var p = defaultPatient();
           p.id = patient.id;
           p.mrn = patient.identifier[0].value;
+          mrn = 
           ret.resolve(p);
         });
     }
