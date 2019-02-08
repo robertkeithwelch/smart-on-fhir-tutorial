@@ -20,11 +20,11 @@
         smart.api.read( practObj ).then( (pract) => {
               var identifiers = pract.data.identifier;
           
-              for( var identifier : identifiers )
+              for( var index=0 ; i<identifiers.length : i++ )
               {
-                if( identifier.coding[0].code == "PRN" )
+                if( identifiers[i].coding[0].code == "PRN" )
                 {
-                  $('#pract').html( identifier.value );
+                  $('#pract').html( identifiers[i].value );
                 }
               }
         })
@@ -38,7 +38,6 @@
           ret.resolve(p);
         });
     }
-
 
     FHIR.oauth2.ready(onReady, onError);
 
