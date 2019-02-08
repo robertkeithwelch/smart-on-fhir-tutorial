@@ -78,7 +78,6 @@ var MRN = "";
   window.drawVisualization = function(p) {
 
     $('#holder').show();
-    $('#loading').hide();
     $('#fhirid').html(p.id);
     $('#mrn').html(p.mrn);
   };
